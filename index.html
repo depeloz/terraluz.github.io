@@ -58,18 +58,16 @@
     .hero{height:100vh;min-height:620px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center}
     .hero-bg{
       position:absolute;inset:0;
-      background:url('fondo.jpeg') center/cover no-repeat;
+      background:url('portada.jpeg') center/cover no-repeat;
       background-color:#3a6e30;will-change:transform;
     }
+    /* Overlay: transparencia moderada para que se vea la imagen + texto legible */
     .hero-ov{
       position:absolute;inset:0;
       background:
-        /* Halo blanco en el centro para el logo principal */
-        radial-gradient(ellipse 58% 36% at center 34%, rgba(255,255,255,.46) 0%, rgba(255,255,255,.1) 50%, transparent 70%),
-        /* Oscurecer esquina superior derecha (logo del fondo) */
-        radial-gradient(ellipse 40% 30% at 85% 10%, rgba(0,0,0,.55) 0%, transparent 70%),
-        /* Degradado vertical: oscuro arriba, claro centro, oscuro abajo para texto */
-        linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.0) 28%, rgba(0,0,0,.0) 52%, rgba(0,0,0,.62) 100%);
+        radial-gradient(ellipse 55% 32% at center 32%, rgba(255,255,255,.42) 0%, rgba(255,255,255,.06) 50%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 85% 10%, rgba(0,0,0,.52) 0%, transparent 70%),
+        linear-gradient(180deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,.0) 38%, rgba(0,0,0,.18) 60%, rgba(0,0,0,.68) 100%);
     }
     .fl-leaf{position:absolute;font-size:1.8rem;opacity:.55;pointer-events:none;animation:floatA 5s ease-in-out infinite}
     .fl1{top:22%;left:5%;animation-delay:0s;transform:rotate(-25deg)}
@@ -378,7 +376,7 @@
     <li><a href="#inicio">Inicio</a></li>
     <li><a href="#nosotros">Nosotros</a></li>
     <li><a href="#ingredientes">Ingredientes</a></li>
-    <li><a href="#catrala">Viña Catrala</a></li>
+    <li><a href="#materias-primas">Materias Primas</a></li>
     <li><a href="#productos">Productos</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ul>
@@ -388,7 +386,7 @@
   <a href="#inicio"       onclick="closeMenu()">Inicio</a>
   <a href="#nosotros"     onclick="closeMenu()">Nosotros</a>
   <a href="#ingredientes" onclick="closeMenu()">Ingredientes</a>
-  <a href="#catrala"      onclick="closeMenu()">Viña Catrala</a>
+  <a href="#materias-primas" onclick="closeMenu()">Materias Primas</a>
   <a href="#productos"    onclick="closeMenu()">Productos</a>
   <a href="#contacto"     onclick="closeMenu()">Contacto</a>
 </div>
@@ -449,9 +447,10 @@
   <div class="container">
     <div class="nos-grid">
       <div class="nos-wrap reveal">
-        <div class="nos-frame">
-          <img src="pack-productos.jpeg"
-               alt="Productos TerraLuz — Bruma, Aceite y Crema" loading="lazy">
+        <div class="nos-frame" style="aspect-ratio:4/3;border-radius:var(--rl)">
+          <img src="fondo.jpeg"
+               alt="Productos TerraLuz — Bruma, Aceite y Crema" loading="lazy"
+               style="width:100%;height:100%;object-fit:cover;object-position:center center">
         </div>
         <div class="nos-dots"></div>
         <span class="nos-deco">🍃</span>
@@ -459,7 +458,7 @@
       <div class="reveal d2">
         <span class="sec-sc">Innovación con propósito</span>
         <span class="chip">Nuestra Historia</span>
-        <h2 class="sec-tt" style="color:var(--vb)">De la vida a tu <span style="color:var(--d)">piel</span></h2>
+        <h2 class="sec-tt" style="color:var(--vb)">La naturaleza en tu <span style="color:var(--d)">piel</span></h2>
         <p class="sec-ds">TerraLuz nace de una visión transformadora: aprovechar los residuos de la industria vitivinícola para crear cosmética natural de alto desempeño.</p>
         <blockquote class="nos-quote">"Porque cuidar de ti no debe significar dañar el entorno."</blockquote>
         <p class="sec-ds">El poder antioxidante de la <strong style="color:var(--v)">uva</strong> y el efecto regenerador de la <strong style="color:var(--d)">cúrcuma</strong> se unen en fórmulas sostenibles, inclusivas y llenas de naturaleza.</p>
@@ -473,39 +472,90 @@
   </div>
 </section>
 
-<!-- VIÑA CATRALA -->
-<section class="catrala" id="catrala">
+<!-- MATERIAS PRIMAS (Asociados + Cúrcuma) -->
+<section id="materias-primas" style="background:linear-gradient(135deg,var(--vb) 0%,#0f2e0f 100%);padding:80px 48px">
   <div class="container">
-    <div class="catrala-grid">
-      <div class="catrala-img reveal">
-        <img src="catrala.jpeg" alt="Viña Catrala — 100% Orgánica, Casablanca" loading="lazy">
+
+    <!-- Encabezado sección -->
+    <div class="tc reveal" style="margin-bottom:64px">
+      <span class="catrala-badge">🌿 Origen de nuestros ingredientes</span>
+      <h2 class="sec-tt" style="color:var(--cr)">Materias <span style="color:var(--d)">Primas</span></h2>
+      <p class="sec-ds" style="color:rgba(253,244,224,.65);margin-inline:auto">Conoce de dónde provienen los ingredientes que hacen posible TerraLuz y los actores que forman parte de nuestra cadena de valor sostenible.</p>
+    </div>
+
+    <!-- SUBSECCIÓN 1: Asociados — Viña Catrala -->
+    <div style="margin-bottom:72px" id="catrala">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:32px">
+        <span style="display:inline-block;width:4px;height:36px;background:var(--d);border-radius:4px"></span>
+        <h3 style="font-family:'Playfair Display',serif;font-size:clamp(1.3rem,3vw,1.8rem);color:var(--cr)">Asociados</h3>
       </div>
-      <div class="reveal d2">
-        <span class="catrala-badge">🍇 Nuestra Alianza</span>
-        <h2 class="sec-tt" style="color:var(--cr)">Viña <span style="color:var(--d)">Catrala</span></h2>
-        <blockquote class="catrala-quote">"Gracias a la alianza con la Viña Catrala 100% orgánica ubicada en Casablanca, obtuvimos el orujo de la uva con el cual son elaborados nuestros productos."</blockquote>
-        <p style="font-size:.95rem;color:rgba(253,244,224,.75);line-height:1.85;margin-bottom:20px">
-          Esta alianza nos permitió acceder a un ingrediente excepcional: el orujo de uva — residuo de la vinificación —, rico en polifenoles, resveratrol y antioxidantes naturales que dan vida a nuestra línea cosmética de <strong style="color:var(--dc)">Bruma Facial Revitalizante</strong>, <strong style="color:var(--dc)">Aceite Corporal Antiinflamatorio</strong> y <strong style="color:var(--dc)">Crema Facial Regeneradora</strong>.
-        </p>
-        <p style="font-size:.95rem;color:rgba(253,244,224,.75);line-height:1.85;margin-bottom:28px">
-          La <strong style="color:var(--dc)">cúrcuma</strong>, nuestro segundo ingrediente estrella, fue obtenida a través de <strong style="color:var(--dc)">proveedores locales de la Región de Valparaíso</strong>, apoyando el comercio de proximidad y los mercados locales de la zona. Esta decisión refleja nuestro compromiso con el territorio, priorizando materias primas de cercanía que reducen la huella de carbono y fortalecen la economía regional.
-        </p>
-        <div style="display:flex;gap:24px;flex-wrap:wrap">
-          <div style="text-align:center">
-            <span style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--d);display:block">100%</span>
-            <span style="font-size:.76rem;color:rgba(253,244,224,.55);text-transform:uppercase;letter-spacing:1px">Orgánica</span>
-          </div>
-          <div style="text-align:center">
-            <span style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--d);display:block">🌱</span>
-            <span style="font-size:.76rem;color:rgba(253,244,224,.55);text-transform:uppercase;letter-spacing:1px">Casablanca</span>
-          </div>
-          <div style="text-align:center">
-            <span style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--d);display:block">0</span>
-            <span style="font-size:.76rem;color:rgba(253,244,224,.55);text-transform:uppercase;letter-spacing:1px">Residuos</span>
+      <div class="catrala-grid">
+        <div class="catrala-img reveal">
+          <img src="catrala.jpeg" alt="Viña Catrala — 100% Orgánica, Casablanca" loading="lazy">
+        </div>
+        <div class="reveal d2">
+          <span class="catrala-badge">🍇 Nuestra Alianza</span>
+          <h4 style="font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3vw,2rem);color:var(--cr);margin-bottom:14px">Viña <span style="color:var(--d)">Catrala</span></h4>
+          <blockquote class="catrala-quote">"Gracias a la alianza con la Viña Catrala 100% orgánica ubicada en Casablanca, obtuvimos el orujo de la uva con el cual son elaborados nuestros productos."</blockquote>
+          <p style="font-size:.95rem;color:rgba(253,244,224,.75);line-height:1.85;margin-bottom:28px">
+            Esta alianza nos permitió acceder a un ingrediente excepcional: el orujo de uva — residuo de la vinificación —, rico en polifenoles, resveratrol y antioxidantes naturales que dan vida a nuestra línea cosmética de <strong style="color:var(--dc)">Bruma Facial Revitalizante</strong>, <strong style="color:var(--dc)">Aceite Corporal Antiinflamatorio</strong> y <strong style="color:var(--dc)">Crema Facial Regeneradora</strong>.
+          </p>
+          <div style="display:flex;gap:24px;flex-wrap:wrap">
+            <div style="text-align:center">
+              <span style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--d);display:block">100%</span>
+              <span style="font-size:.76rem;color:rgba(253,244,224,.55);text-transform:uppercase;letter-spacing:1px">Orgánica</span>
+            </div>
+            <div style="text-align:center">
+              <span style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--d);display:block">🌱</span>
+              <span style="font-size:.76rem;color:rgba(253,244,224,.55);text-transform:uppercase;letter-spacing:1px">Casablanca</span>
+            </div>
+            <div style="text-align:center">
+              <span style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--d);display:block">0</span>
+              <span style="font-size:.76rem;color:rgba(253,244,224,.55);text-transform:uppercase;letter-spacing:1px">Residuos</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Separador -->
+    <div style="border-top:1px solid rgba(253,244,224,.12);margin-bottom:72px"></div>
+
+    <!-- SUBSECCIÓN 2: Cúrcuma — Proveedores Locales -->
+    <div id="curcuma-origen">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:32px">
+        <span style="display:inline-block;width:4px;height:36px;background:var(--d);border-radius:4px"></span>
+        <h3 style="font-family:'Playfair Display',serif;font-size:clamp(1.3rem,3vw,1.8rem);color:var(--cr)">Cúrcuma</h3>
+      </div>
+      <div class="catrala-grid">
+        <div class="reveal d2">
+          <span class="catrala-badge">🧡 Proveedores Locales</span>
+          <h4 style="font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3vw,2rem);color:var(--cr);margin-bottom:14px">Región de <span style="color:var(--d)">Valparaíso</span></h4>
+          <blockquote class="catrala-quote">"Apoyamos el comercio local adquiriendo nuestra cúrcuma a través de mercados y proveedores de la V Región, reduciendo la huella de carbono y fortaleciendo la economía regional."</blockquote>
+          <p style="font-size:.95rem;color:rgba(253,244,224,.75);line-height:1.85;margin-bottom:28px">
+            La <strong style="color:var(--dc)">cúrcuma</strong>, nuestro segundo ingrediente estrella, fue obtenida a través de <strong style="color:var(--dc)">proveedores locales de la Región de Valparaíso</strong>, apoyando el comercio de proximidad y los mercados locales de la zona. Esta decisión refleja nuestro compromiso con el territorio, priorizando materias primas de cercanía que reducen la huella de carbono y fortalecen la economía regional.
+          </p>
+          <div style="display:flex;gap:24px;flex-wrap:wrap">
+            <div style="text-align:center">
+              <span style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--d);display:block">🏪</span>
+              <span style="font-size:.76rem;color:rgba(253,244,224,.55);text-transform:uppercase;letter-spacing:1px">Mercado Local</span>
+            </div>
+            <div style="text-align:center">
+              <span style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--d);display:block">V</span>
+              <span style="font-size:.76rem;color:rgba(253,244,224,.55);text-transform:uppercase;letter-spacing:1px">Región</span>
+            </div>
+            <div style="text-align:center">
+              <span style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--d);display:block">🌱</span>
+              <span style="font-size:.76rem;color:rgba(253,244,224,.55);text-transform:uppercase;letter-spacing:1px">Sostenible</span>
+            </div>
+          </div>
+        </div>
+        <div class="catrala-img reveal d2">
+          <img src="curcuma2.jpeg" alt="Cúrcuma — Proveedores locales Región de Valparaíso" loading="lazy">
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -528,10 +578,6 @@
                alt="Racimo de uvas — Extracto de Uva Vitis vinifera"
                style="width:100%;height:100%;object-fit:cover;object-position:center bottom">
           <div class="ings-det-ov"></div>
-          <div class="ings-det-label">
-            <h3>🍇 Extracto de Uva</h3>
-            <span>Vitis vinifera</span>
-          </div>
         </div>
         <div class="ings-det-body">
           <div class="ings-det-origin">
@@ -556,10 +602,6 @@
                alt="Raíz de cúrcuma — Curcuma longa"
                style="width:100%;height:100%;object-fit:cover;object-position:center bottom">
           <div class="ings-det-ov"></div>
-          <div class="ings-det-label">
-            <h3>🧡 Cúrcuma Activa</h3>
-            <span>Curcuma longa</span>
-          </div>
         </div>
         <div class="ings-det-body">
           <div class="ings-det-origin">
